@@ -1,0 +1,81 @@
+version: "3.9"
+
+services:
+  # Base de données graphe
+  neo4j:
+    image: neo4j:5
+    container_name: neo4j
+    ports:
+      - "7474:7474"   # UI
+      - "7687:7687"   # Bolt
+    environment:
+      - NEO4J_AUTH=none
+      - NEO4J_ACCEPT_LICENSE_AGREEMENT=yes
+    volumes:
+      - ./data/neo4j:/data
+      - ./schema/neo4j-schema.cypher:/docker-entrypoint-initdb.d/schema.cypher
+
+  # Orchestrateur Airflow
+  airflow:
+    image: apache/airflow:2.9.3
+    container_name: airflow
+    environment:
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__WEBSERVER__EXPOSE_CONFIG=True
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./data:/opt/airflow/data
+      - ./scripts:/opt/airflow/scripts
+    ports:
+      - "8080:8080"
+    command: >
+      bash -c "airflow db init &&
+               airflow users create --username admin --password admin --firstname Admin --lastname User --role Admin --email admin@example.com &&
+               airflow webserver & airflow scheduler"
+    depends_on:
+      - neo4j
+
+  # Marquez (lineage)
+  marquez:
+    image: marquezproject/marquez:latest
+    container_name: marquez
+    ports:
+      - "5000:5000"
+    environment:
+      - MARQUEZ_PORT=5000
+      - MARQUEZ_WEB_URL=http://localhost:5000
+    volumes:
+      - ./lineage:/opt/lineage
+
+  # Prometheus
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./grafana/prometheus.yml:/etc/prometheus/prometheus.yml
+
+  # Grafana
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./grafana/dashboards:/var/lib/grafana/dashboards
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    depends_on:
+      - prometheus
+
+  # API FastAPI
+  api:
+    build: ./api
+    container_name: fastapi
+    ports:
+      - "8000:8000"
+    depends_on:
+      - neo4j
