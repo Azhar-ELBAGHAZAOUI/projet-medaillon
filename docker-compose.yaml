@@ -72,10 +72,3 @@ services:
       - prometheus
 
   # API FastAPI
-  api:
-    build: ./api
-    container_name: fastapi
-    ports:
-      - "8000:8000"
-    depends_on:
-      - neo4j
