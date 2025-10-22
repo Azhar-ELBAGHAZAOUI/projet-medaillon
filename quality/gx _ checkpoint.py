@@ -45,7 +45,7 @@ validation_edges_src_not_null = edges_batch.validate(expect_not_null_src)
 validation_edges_dst_not_null = edges_batch.validate(expect_not_null_dst)
 
 # Afficher les résultats
-print('Résultat test id unique : ', validation_nodes_id_unique)
+print('Résultat test id unique : ', validation_nodes_id_unique.success)
 print('Résultat test id not null : ', validation_nodes_not_null.success)
 print('Résultat test src not null : ', validation_edges_src_not_null.success)
 print('Résultat test dst not null : ', validation_edges_dst_not_null.success)
