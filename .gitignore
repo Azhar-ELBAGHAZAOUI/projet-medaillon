@@ -3,3 +3,5 @@ data/bronze/*
 data/silver*
 data/gold/*
 test.yaml 
+data/neo4j/databases/
+data/neo4j/transactions/
