@@ -12,6 +12,9 @@ import os
 silver_dir = "$SILVER_DIR"
 gold_dir = "$GOLD_DIR"
 
+# Crée le dossier gold s'il n'existe pas
+os.makedirs(gold_dir, exist_ok=True)
+
 #Export des nodes
 nodes_file = os.path.join(silver_dir, "nodes.parquet")
 nodes_df = pd.read_parquet(nodes_file)

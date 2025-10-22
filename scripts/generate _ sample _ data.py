@@ -4,6 +4,9 @@ import os
 
 RAW_DIR = "data/raw"
 
+# Crée le dossier s'il n'existe pas
+os.makedirs(RAW_DIR, exist_ok=True)
+
 # Paramètres
 NUM_NODES = 1_000
 NUM_EDGES = 5_000

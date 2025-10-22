@@ -4,6 +4,9 @@ import os
 RAW_DIR = "data/raw"        
 BRONZE_DIR = "data/bronze"  
 
+# Crée le dossier bronze s'il n'existe pas
+os.makedirs(BRONZE_DIR, exist_ok=True)
+
 # Conversion des nodes
 nodes_csv = os.path.join(RAW_DIR, "nodes.csv")       
 nodes_parquet = os.path.join(BRONZE_DIR, "nodes.parquet")  

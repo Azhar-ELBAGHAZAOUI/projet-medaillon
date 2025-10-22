@@ -6,6 +6,9 @@ import shutil
 BRONZE_DIR = "data/bronze"
 SILVER_DIR = "data/silver"
 
+# Crée le dossier silver s'il n'existe pas
+os.makedirs(SILVER_DIR, exist_ok=True)
+
 #Lire les fichiers bronze
 edges_df = pd.read_parquet(os.path.join(BRONZE_DIR, "edges.parquet"))
 nodes_df = pd.read_parquet(os.path.join(BRONZE_DIR, "nodes.parquet"))
