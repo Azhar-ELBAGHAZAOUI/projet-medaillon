@@ -1,0 +1,56 @@
+version: "3.9"
+services:
+  # Base de données graphe
+  neo4j:
+    image: neo4j:5
+    container_name: neo4j_medaillon
+    ports:
+      - "7474:7474"   # UI
+      - "7687:7687"   # Bolt
+    environment:
+      - NEO4J_AUTH=none
+      - NEO4J_ACCEPT_LICENSE_AGREEMENT=yes
+    volumes:
+      - ./data/neo4j:/data
+      - ./data/gold:/var/lib/neo4j/import
+      - ./schema/neo4j-schema.cypher:/docker-entrypoint-initdb.d/schema.cypher
+
+  airflow:
+    build: .
+    image: apache/airflow:3.1.0
+    container_name: airflow_medaillon
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+      AIRFLOW__CORE__AUTH_MANAGER: airflow.providers.fab.auth_manager.fab_auth_manager.FabAuthManager
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./scripts:/opt/airflow/scripts
+      - ./quality:/opt/airflow/quality
+      - ./data:/opt/airflow/data
+      - ./Makefile:/opt/airflow/Makefile
+      - /var/run/docker.sock:/var/run/docker.sock # Permet au conteneur d’accéder au démon Docker de l’hôte pour lancer Neo4j via Docker depuis Airflow (dans le dag du gold)
+      - ./data/gold:/var/lib/neo4j/import
+
+    command: >
+      bash -c "
+        airflow db migrate &&
+        airflow standalone
+      "
+    depends_on:
+      - neo4j
+  api:
+      build:
+        context: ./api       # le Dockerfile de API est dans ./api/
+      container_name: api_medaillon
+      ports:
+        - "8000:8000"        # port de l’API
+      environment:
+        NEO4J_URI: bolt://neo4j:7687
+      volumes:
+        - ./api:/app         # monte le code local dans le conteneur
+      depends_on:
+        - neo4j     
