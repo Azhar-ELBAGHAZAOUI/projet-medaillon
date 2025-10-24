@@ -1,2 +1,7 @@
 env/
 test.yaml 
+data/bronze/*
+data/silver/*
+data/gold/*
+data/neo4j/*
+data/raw/*

@@ -43,17 +43,17 @@ END
 
 
 # COPIE DES CSV DANS LE CONTENEUR Neo4j
-docker cp $GOLD_DIR/. neo4j:/var/lib/neo4j/import
-docker exec neo4j rm -rf /data/databases/neo4j /data/transactions/neo4j
-docker restart neo4j
+docker cp $GOLD_DIR/. neo4j_medaillon:/var/lib/neo4j/import
+docker exec neo4j_medaillon rm -rf /data/databases/neo4j /data/transactions/neo4j
+docker restart neo4j_medaillon
 sleep 10  # Attendre que Neo4j soit prêt
 
 # INSERTION VIA CYPHER
 # Import des nœuds
-docker exec -i neo4j cypher-shell <<EOF
+docker exec -i neo4j_medaillon cypher-shell <<EOF
 LOAD CSV WITH HEADERS FROM 'file:///nodes.csv' AS row
 CREATE (n:Entity {
-    id: row["id:ID"],
+    id: toString(row["id:ID"]),
     name: row.name,
     type: row.label
 });
@@ -63,11 +63,11 @@ echo "Nœuds importés"
 # Import des relations
 for shard in {0..7}; do
     EDGE_FILE="file:///edges_shard${shard}.csv"
-    docker exec -i neo4j cypher-shell <<EOF
+    docker exec -i neo4j_medaillon cypher-shell <<EOF
 LOAD CSV WITH HEADERS FROM '$EDGE_FILE' AS row
 MATCH (a:Entity {id: row[":START_ID"]})
 MATCH (b:Entity {id: row[":END_ID"]})
-CREATE (a)-[r:RELATED_TO]->(b);
+CREATE (a)-[r:REL]->(b);
 EOF
 done
 echo "Relations importées"
