@@ -1,0 +1,73 @@
+[2025-10-23T13:56:58.152+0000] {processor.py:161} INFO - Started process (PID=39) to work on /opt/airflow/dags/ingest_kg.py
+[2025-10-23T13:56:58.154+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/ingest_kg.py for tasks to queue
+[2025-10-23T13:56:58.162+0000] {logging_mixin.py:188} INFO - [2025-10-23T13:56:58.161+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/ingest_kg.py
+[2025-10-23T13:56:59.864+0000] {logging_mixin.py:188} INFO - [2025-10-23T13:56:59.863+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/ingest_kg.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/ingest_kg.py", line 15, in <module>
+    from generate_sample_data import generate_data
+ImportError: cannot import name 'generate_data' from 'generate_sample_data' (/opt/airflow/scripts/generate_sample_data.py)
+[2025-10-23T13:56:59.864+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/ingest_kg.py
+[2025-10-23T13:56:59.901+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/ingest_kg.py took 1.786 seconds
+[2025-10-23T13:57:30.847+0000] {processor.py:161} INFO - Started process (PID=43) to work on /opt/airflow/dags/ingest_kg.py
+[2025-10-23T13:57:30.849+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/ingest_kg.py for tasks to queue
+[2025-10-23T13:57:30.852+0000] {logging_mixin.py:188} INFO - [2025-10-23T13:57:30.852+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/ingest_kg.py
+[2025-10-23T13:57:31.423+0000] {logging_mixin.py:188} INFO - [2025-10-23T13:57:31.422+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/ingest_kg.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/ingest_kg.py", line 15, in <module>
+    from generate_sample_data import generate_data
+ImportError: cannot import name 'generate_data' from 'generate_sample_data' (/opt/airflow/scripts/generate_sample_data.py)
+[2025-10-23T13:57:31.424+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/ingest_kg.py
+[2025-10-23T13:57:31.470+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/ingest_kg.py took 0.630 seconds
+[2025-10-23T13:58:02.356+0000] {processor.py:161} INFO - Started process (PID=46) to work on /opt/airflow/dags/ingest_kg.py
+[2025-10-23T13:58:02.359+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/ingest_kg.py for tasks to queue
+[2025-10-23T13:58:02.367+0000] {logging_mixin.py:188} INFO - [2025-10-23T13:58:02.366+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/ingest_kg.py
+[2025-10-23T14:06:18.177+0000] {processor.py:161} INFO - Started process (PID=165) to work on /opt/airflow/dags/ingest_kg.py
+[2025-10-23T14:06:18.179+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/ingest_kg.py for tasks to queue
+[2025-10-23T14:06:18.186+0000] {logging_mixin.py:188} INFO - [2025-10-23T14:06:18.184+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/ingest_kg.py
+[2025-10-23T14:06:20.451+0000] {logging_mixin.py:188} INFO - [2025-10-23T14:06:20.448+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/ingest_kg.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/ingest_kg.py", line 15, in <module>
+    from generate_sample_data import generate_data
+ImportError: cannot import name 'generate_data' from 'generate_sample_data' (/opt/airflow/scripts/generate_sample_data.py)
+[2025-10-23T14:06:20.453+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/ingest_kg.py
+[2025-10-23T14:06:20.497+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/ingest_kg.py took 2.329 seconds
+[2025-10-23T14:06:50.731+0000] {processor.py:161} INFO - Started process (PID=171) to work on /opt/airflow/dags/ingest_kg.py
+[2025-10-23T14:06:50.733+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/ingest_kg.py for tasks to queue
+[2025-10-23T14:06:50.738+0000] {logging_mixin.py:188} INFO - [2025-10-23T14:06:50.737+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/ingest_kg.py
+[2025-10-23T14:06:51.063+0000] {logging_mixin.py:188} INFO - [2025-10-23T14:06:51.061+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/ingest_kg.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/ingest_kg.py", line 15, in <module>
+    from generate_sample_data import generate_data
+ImportError: cannot import name 'generate_data' from 'generate_sample_data' (/opt/airflow/scripts/generate_sample_data.py)
+[2025-10-23T14:06:51.063+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/ingest_kg.py
+[2025-10-23T14:06:51.094+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/ingest_kg.py took 0.383 seconds
+[2025-10-23T14:07:21.574+0000] {processor.py:161} INFO - Started process (PID=177) to work on /opt/airflow/dags/ingest_kg.py
+[2025-10-23T14:07:21.576+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/ingest_kg.py for tasks to queue
+[2025-10-23T14:07:21.588+0000] {logging_mixin.py:188} INFO - [2025-10-23T14:07:21.587+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/ingest_kg.py
+[2025-10-23T14:07:21.920+0000] {logging_mixin.py:188} INFO - [2025-10-23T14:07:21.919+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/ingest_kg.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/ingest_kg.py", line 15, in <module>
+    from generate_sample_data import generate_data
+ImportError: cannot import name 'generate_data' from 'generate_sample_data' (/opt/airflow/scripts/generate_sample_data.py)
+[2025-10-23T14:07:21.921+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/ingest_kg.py
+[2025-10-23T14:07:21.951+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/ingest_kg.py took 0.392 seconds

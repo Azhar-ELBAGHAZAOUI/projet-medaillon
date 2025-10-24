@@ -1,0 +1,64 @@
+[2025-10-23T13:56:58.018+0000] {manager.py:470} INFO - Processing files using up to 2 processes at a time 
+[2025-10-23T13:56:58.019+0000] {manager.py:471} INFO - Process each file at most once every 30 seconds
+[2025-10-23T13:56:58.020+0000] {manager.py:472} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2025-10-23T13:56:58.020+0000] {manager.py:737} INFO - Searching for files in /opt/airflow/dags
+[2025-10-23T13:56:58.023+0000] {manager.py:740} INFO - There are 2 files in /opt/airflow/dags
+[2025-10-23T13:56:58.215+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                         PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------  -----  ---------  --------  ----------  --------------  ----------
+/opt/airflow/dags/test_dag.py      40  0.10s             0           0
+/opt/airflow/dags/ingest_kg.py     39  0.12s             0           0
+================================================================================
+[2025-10-23T13:57:28.786+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                         PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/ingest_kg.py                           0           1  1.83s           2025-10-23T13:56:59
+/opt/airflow/dags/test_dag.py      42  0.02s             1           0  0.31s           2025-10-23T13:56:58
+================================================================================
+[2025-10-23T13:57:59.221+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                         PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/ingest_kg.py                           0           1  0.65s           2025-10-23T13:57:31
+/opt/airflow/dags/test_dag.py      45  0.01s             1           0  0.13s           2025-10-23T13:57:28
+================================================================================
+[2025-10-23T13:58:02.606+0000] {manager.py:452} INFO - Exiting gracefully upon receiving signal 15
+[2025-10-23T13:58:02.606+0000] {manager.py:452} INFO - Exiting gracefully upon receiving signal 15
+[2025-10-23T13:58:02.749+0000] {manager.py:452} INFO - Exiting gracefully upon receiving signal 15
+[2025-10-23T14:06:17.974+0000] {manager.py:470} INFO - Processing files using up to 2 processes at a time 
+[2025-10-23T14:06:17.975+0000] {manager.py:471} INFO - Process each file at most once every 30 seconds
+[2025-10-23T14:06:17.977+0000] {manager.py:472} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2025-10-23T14:06:17.979+0000] {manager.py:737} INFO - Searching for files in /opt/airflow/dags
+[2025-10-23T14:06:17.986+0000] {manager.py:740} INFO - There are 1 files in /opt/airflow/dags
+[2025-10-23T14:06:18.220+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                         PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------  -----  ---------  --------  ----------  --------------  ----------
+/opt/airflow/dags/ingest_kg.py    165  0.07s             0           0
+================================================================================
+[2025-10-23T14:06:48.633+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                       PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/ingest_kg.py                           0           1  2.37s           2025-10-23T14:06:20
+================================================================================
+[2025-10-23T14:07:19.472+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                       PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/ingest_kg.py                           0           1  0.44s           2025-10-23T14:06:51
+================================================================================
